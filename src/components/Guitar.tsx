@@ -1,6 +1,19 @@
-export default function Guitar({guitar, addToCart}) { // puede ser extract {price}
+type Guitar = { // tambien se puede usar interface (type TGuitar, interface IGuitar)
+  id: number;
+  name: string;
+  image: string;
+  description: string;
+  price: number;
+};
+
+type GuitarProps = {
+    guitar: Guitar; 
+    addToCart: (item : Guitar) => void;
+}
+
+export default function Guitar({guitar, addToCart} : GuitarProps) { // puede ser extract {price}
     
-    const { id, name, image, description, price } = guitar; // desestructuracion
+    const {name, image, description, price } = guitar; // desestructuracion
     
     return (
         <div className="col-md-6 col-lg-4 my-4 row align-items-center">
